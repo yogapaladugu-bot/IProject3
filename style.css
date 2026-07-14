@@ -55,6 +55,7 @@ body{
     width:300px;
     top: 100%;
     background-color: #020109;
+    color:whitesmoke;
 }
 .searchContainer{
     display:flex;
