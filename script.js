@@ -274,8 +274,9 @@ function onClick(params){ //params is the information about the click event and 
         let genre = nodes.get(nodeID); //gets the entire node object using the id and stores it in a variable called genre
 
          document.getElementById("info").innerHTML =  //changes innerHTML in infoBox
-        `
-        <h2>${genre.label}</h2>  // Displays the node's label, description, etc.
+       // Displays the node's label, description, etc.
+         `
+        <h2>${genre.label}</h2> 
 
         <p>${genre.description}</p>
 
