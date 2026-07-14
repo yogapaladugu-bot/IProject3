@@ -112,7 +112,6 @@ const edges = new vis.DataSet(
   {from:48, to:28, value:4, arrows:"to", "title": "Blues provided soul's foundational structure, rhythm, and raw emotion."}, // Blues - Soul
   {from:48, to:7, value:3, arrows:"to", "title": "Blues provided the instrumental and vocal techniques and the foundational song structure of country music"}, // Blues - Country
   {from:48, to:49, value:3, "title": "Gospel adopted the blues scale, emotional delivery, and guitar styles."}, // Blues - Gospel
-  {from:49, to:28, value:5, arrows:"to", "title": "Soul adopted Gospel's vocal styles; soul took gospel's melisma, shouts, and intense vocal runs."}, // Gospel - Soul
   {from:47, to:7, value:4, arrows:"to", "title": "Folk provided country's traditional ballads, acoustic instrumentation, and storytelling."}, // Folk - Country
 
   // JAZZ CONNECTIONS
