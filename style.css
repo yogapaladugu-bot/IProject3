@@ -46,6 +46,31 @@ body{
     background-color: black;
     color:aliceblue;
 }
+#search{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    z-index: 1000;
+    width:300px;
+    top: 100%;
+    background-color: #020109;
+}
+.searchContainer{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    z-index: 1000;
+    width:300px;
+    top: 100%;
+    gap:10px;
+    background-color: #020109;
+}
+#searchButton{
+    background-color: #020109;
+    color:gray;
+}
 /* #config{
     background-color: #111111;
     border: 2px dashed aqua;
