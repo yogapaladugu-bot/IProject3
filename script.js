@@ -209,10 +209,10 @@ const data = {
     edges: edges
 };
 
-const options = {
+const options = { //combines nodes and edges into one object and determines which features this object will comprise of
       interaction: {
         dragNodes: true,
-        dragView: true,
+        dragView: true, //able to drag the entire graph, not just individual nodes
     },
     physics:{
     enabled:true
@@ -229,13 +229,13 @@ const options = {
 //     container: document.getElementById("config"),
 //     filter:'physics',
 //     showButton:false},
-edges: {
+edges: { 
     arrows:{
         to:{
             enabled:true
         }
     },
-    scaling: {
+    scaling: { //controls how thick edges are and these values are given to the edges above
         min: 1,
         max: 5
     }
@@ -252,12 +252,12 @@ function hideBox(){
         button.style.display = "none";
 }
 function searchGenre(){
-    let searchTerm = searchInput.value.toLowerCase();
-    let allNodes = nodes.get();
-    for(let i of allNodes){
-        if(i.label.toLowerCase() === searchTerm){
-            network.focus(i.id, {scale: 2, animation: {duration: 1000}});
-            network.selectNodes([i.id]);
+    let searchTerm = searchInput.value.toLowerCase(); //makes the search term lowercase so that it can be compared to the lowercase labels of the nodes
+    let allNodes = nodes.get(); //gets all the nodes from the node object
+    for(let i of allNodes){ //loops through all the nodes
+        if(i.label.toLowerCase() === searchTerm){ //makes the label of the node lowercase and compares it to the search term
+            network.focus(i.id, {scale: 2, animation: {duration: 1000}}); //if equal, focuses on the node(using its id) and zooms in on it with a scale of 2 and an animation duration of 1000 milliseconds
+            network.selectNodes([i.id]); //selects the node using its id
             break;
         }
     }
@@ -267,16 +267,15 @@ function clickEnter(event){
         searchButton.click();
     }
 }
-function onClick(params){
-    if(params.nodes.length > 0){
+function onClick(params){ //params is the information about the click event and then params.nodes is simply an array which goes into more specific about the details given by js when you click smth, if the array is empty, you did not click on a node
+    if(params.nodes.length > 0){ //checks to see if the user clicked on a node
+        let nodeID = params.nodes[0]; //in the nodes object, the first index value is the id so gets the nodes id
 
-        let nodeID = params.nodes[0];
+        let genre = nodes.get(nodeID); //gets the entire node object using the id and stores it in a variable called genre
 
-        let genre = nodes.get(nodeID);
-
-         document.getElementById("info").innerHTML = 
+         document.getElementById("info").innerHTML =  //changes innerHTML in infoBox
         `
-        <h2>${genre.label}</h2>
+        <h2>${genre.label}</h2>  // Displays the node's label, description, etc.
 
         <p>${genre.description}</p>
 
@@ -293,3 +292,4 @@ searchButton.addEventListener("click", searchGenre);
 network.addEventListener("click", onClick);
 button.addEventListener("click", hideBox);
 searchInput.addEventListener("keypress", clickEnter);
+
