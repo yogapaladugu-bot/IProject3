@@ -17,6 +17,68 @@ body{
         0 0 40px rgba(0,255,255,0.6),
         inset 0 0 30px rgba(0,255,255,0.3); */
 } 
+#title{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color: #020109;
+    color:whitesmoke;
+}
+#description{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color: #020109;
+    color:whitesmoke;
+}
+#year{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color: #020109;
+    color:whitesmoke;
+}
+#artists{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    background-color: #020109;
+    color:whitesmoke;
+}
+#nextButton{
+    background-color: #020109;
+    color:gray;
+}
+#addGenre{
+    display:flex;
+    flex-direction:row;
+    background-color: #020109;
+    color:whitesmoke;
+
+}
+#reset{
+    background-color: #020109;
+    color:gray;
+}
+#addButton{
+    background-color: black;
+    color:gray;
+    padding-top: 5px;
+}
+
+#type{
+    display:flex;
+    flex-direction:row;
+    background-color: #020109;
+    color:gray;
+}
+.label{
+    color:gray;
+}
 #info{
     display: none;
     position:absolute;
@@ -28,6 +90,12 @@ body{
     z-index:10;
     border:2px solid aqua;
     box-shadow:0 0 20px aqua;
+}
+#addContainer2{
+    display:flex;
+    flex-direction:row;
+    background-color: #020109;
+    color:whitesmoke;
 }
 #hide{
     display:none;

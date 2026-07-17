@@ -1,7 +1,18 @@
 const button = document.getElementById("hide");
 const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("search");
-const nodes = new vis.DataSet(
+const addButton = document.getElementById("addButton");
+let newMusic = document.getElementById("addGenre");
+let pick = document.getElementById("type")
+const savedNodes = JSON.parse(localStorage.getItem("nodes"));
+const savedEdges = JSON.parse(localStorage.getItem("edges"));
+const resetButton = document.getElementById("reset");
+const nextButton = document.getElementById("nextButton");
+const year = document.getElementById("year");
+const artists = document.getElementById("artists");
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const OGnodes = 
     [
 // POPULAR MUSIC GENRES
  {"id":1,"label":"Pop","title":"A constantly evolving genre built around accessibility, memorable melodies, and cultural trends.","description":"Pop music absorbs elements from many different genres, including rock, electronic, hip-hop, and R&B. Because it adapts to changing sounds and technology, it often acts as a bridge connecting different musical worlds.","year":"Emerged in the 1950s","artists":"Taylor Swift, Olivia Rodrigo, Sabrina Carpenter, Stray Kids, Katseye, Ariana Grande", "shape":"circle"},
@@ -104,8 +115,9 @@ const nodes = new vis.DataSet(
 {"id":50,"label":"Experimental Music","title":"Music that challenges traditional structures through unusual sounds and techniques.","description":"Experimental music explores new approaches to composition, technology, and sound. It connects classical ideas with electronic, ambient, and avant-garde movements.","year":"Emerged in the early 1900s","artists":"John Cage, Karlheinz Stockhausen, Pierre Boulez", "shape":"circle"},
 ]
     
-)
-const edges = new vis.DataSet(
+
+const nodes = new vis.DataSet(savedNodes || OGnodes);
+const OGedges = 
   [
   {from:48, to:2, value:5, arrows:"to", "title": "Blues provided the foundation for chords in rock music"}, // Blues - Rock
   {from:48, to:5, value:5, arrows:"to", "title": "Introduced Blue Notes, bent notes that sound very emotional, to jazz"}, // Blues - Jazz
@@ -200,8 +212,47 @@ const edges = new vis.DataSet(
   {from:11, to:22, value:4, "title": "Hyperpop's metallic, pitch-shifted production style merged with cloud rap's druggy, slowed-down vocal delivery."} // Hyperpop - Cloud Rap
 ]
  
-)
+const edges = new vis.DataSet(savedEdges || OGedges);
+function resetStorge(){
+    localStorage.removeItem("nodes");
+    localStorage.removeItem("edges");
+    location.reload();
+}
+function addMusic(){
+    let parentID = null;
+    nodes.get().forEach(node => {
+        if(node.label === pick.value){
+            parentID = node.id;
+        }
+        console.log(pick);
+       console.log("Parent ID:", parentID);
+    });
+    const id = nodes.get().length + 2;
+    nodes.add({"id": id, "label": newMusic.value, "title": title.value, "description": description.value, "year": year.value, "artists": artists.value, "shape":"circle"});
+    edges.add({
+        from: parentID,
+        to: id,
+        value: 3
+    });
 
+    localStorage.setItem("nodes", JSON.stringify(nodes.get()));
+    localStorage.setItem("edges", JSON.stringify(edges.get()));
+    year.style.display = "none";
+    artists.style.display = "none";
+    title.style.display = "none";
+    description.style.display = "none";
+
+}
+
+function showOptions(){
+    year.style.display = "block";
+    artists.style.display = "block";
+    title.style.display = "block";
+    description.style.display = "block";
+    typeLabel.style.display = "block";
+    type.style.display = "block";
+    addButton.style.display = "block";
+}
 const container = document.getElementById("network");
 const data = {
     nodes: nodes,
@@ -292,4 +343,6 @@ searchButton.addEventListener("click", searchGenre);
 network.addEventListener("click", onClick);
 button.addEventListener("click", hideBox);
 searchInput.addEventListener("keypress", clickEnter);
-
+addButton.addEventListener("click", addMusic);
+resetButton.addEventListener("click", resetStorge);
+nextButton.addEventListener("click", showOptions);

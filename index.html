@@ -11,7 +11,33 @@
         <center>
         <h1>Music Genres</h1>
         </center>
+        <div class = "addContainer2">
+        <input type = "text" id = "addGenre" placeholder = "Add a new music style">
+        <button id = "nextButton">Next</button>
+        </div>
+        <br>
+        <div id = "addContainer">
+        <input type = "number" id = "year" placeholder = "Add a year" style="display: none;">
+        <input type = "text" id = "artists" placeholder = "Add artists" style="display: none;">
+         <input type = "text" id = "title" placeholder = "Add a title" style="display: none;">
+        <input type = "text" id = "description" placeholder = "Add a description" style="display: none;">
+        </div>
+        <label for = "type" class = "label" id = "typeLabel" style="display: none;">Pick a genre:</label>
+        <select name = "type" id = "type" style="display: none;">
+            <option value = "Blues">Blues</option>
+            <option value = "Country">Country</option>
+            <option value = "Folk">Folk</option>
+            <option value = "Gospel">Gospel</option>
+            <option value = "Jazz">Jazz</option>
+            <option value = "Pop">Pop</option>
+            <option value = "Contemporary R&B">R&B</option>
+            <option value = "Rock">Rock</option>
+        </select>
+        <button id = "addButton" style="display: none;">Add</button>
+        <br>
+        <br>
         <div class = "searchContainer">
+
         <input type = "text" id = "search" placeholder = "Search for a genre">
             <button id = "searchButton">Search</button>
         </div>
@@ -19,6 +45,7 @@
             
         <br>
         <br>
+        <button id = "reset">Reset</button>
         <button id = "hide">Close</button>
 
     
