@@ -241,7 +241,11 @@ function addMusic(){
     artists.style.display = "none";
     title.style.display = "none";
     description.style.display = "none";
-
+    newMusic.value = "";
+    year.value = "";
+    artists.value = "";
+    title.value = "";
+    description.value = "";
 }
 
 function showOptions(){
